@@ -1,14 +1,12 @@
 //
-//  Sphere.cpp
-//  BouncingSpheres
-//
-//  Created by Tyler on 10/15/17.
+//  Rigatoni.cpp
+//  Bouncing Rigatonis
 //
 //
 
-#include "Sphere.hpp"
+#include "Rigatoni.hpp"
 
-Sphere::Sphere()
+Rigatoni::Rigatoni()
 {
     pos     = glm::vec3(0,0,0);
 	radius  = ofRandom(5,20);
@@ -16,7 +14,7 @@ Sphere::Sphere()
     setup();
 }
 
-Sphere::Sphere(glm::vec3 _pos, float _radius)
+Rigatoni::Rigatoni(glm::vec3 _pos, float _radius)
 {
 	pos     = _pos;
 	radius  = _radius;
@@ -24,7 +22,7 @@ Sphere::Sphere(glm::vec3 _pos, float _radius)
     setup();
 }
 
-void Sphere::setup()
+void Rigatoni::setup()
 {
     // assign color based on radius
 
@@ -32,7 +30,7 @@ void Sphere::setup()
     color       = ofColor::fromHsb(hue, 255, 255);
 }
 
-void Sphere::update()
+void Rigatoni::update()
 {
     vel += acc;
 	pos += vel;
@@ -40,7 +38,7 @@ void Sphere::update()
 
 }
 
-void Sphere::draw()
+void Rigatoni::draw()
 {
 	ofPushStyle();
 	shader.begin();
@@ -52,17 +50,17 @@ void Sphere::draw()
 	ofPopStyle();
 }
 
-void Sphere::setVelocity(glm::vec3 _vel)
+void Rigatoni::setVelocity(glm::vec3 _vel)
 {
     vel = _vel;
 }
 
-void Sphere::applyForce(glm::vec3 force)
+void Rigatoni::applyForce(glm::vec3 force)
 {
     acc += force;
 }
 
-void Sphere::bounceWalls(float left, float right, float top, float bottom, float front, float back)
+void Rigatoni::bounceWalls(float left, float right, float top, float bottom, float front, float back)
 {
 	// check x
 	if (pos.x < left + radius) {	// left

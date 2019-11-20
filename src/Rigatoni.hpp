@@ -1,20 +1,18 @@
 //
-//  Sphere.hpp
-//  BouncingSpheres
-//
-//  Created by Tyler on 10/15/17.
+//  Rigatoni.hpp
+//  Bouncing Rigatonis
 //
 //
 
 #pragma once
 #include "ofMain.h"
 
-class Sphere
+class Rigatoni
 {
 public:
 
-	Sphere();
-    Sphere(glm::vec3 _pos, float _radius);
+	Rigatoni();
+    Rigatoni(glm::vec3 _pos, float _radius);
 
     void setup();
 	void update();

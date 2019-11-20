@@ -1,7 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
-#include "Sphere.hpp"
+#include "Rigatoni.hpp"
 #include "Box.hpp"
 
 
@@ -24,7 +24,7 @@ public:
 	void dragEvent(ofDragInfo dragInfo);
 	void gotMessage(ofMessage msg);
 	
-	vector<Sphere> spheres;
+	vector<Rigatoni> rigatonis;
 	Box box;
 	
 	ofEasyCam camera;

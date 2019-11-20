@@ -9,9 +9,9 @@ void ofApp::setup(){
 
 	// make the spheres
 
-	const int nSpheres = 100;
+	const int nRigatonis = 100;
 
-	for (int i=0; i<nSpheres; i++)
+	for (int i=0; i<nRigatonis; i++)
 	{
 
         // random velocity
@@ -25,13 +25,13 @@ void ofApp::setup(){
 
         glm::vec3 pos   = glm::vec3(0,0,0); // start at 0,0,0
 
-        Sphere sphere = Sphere(pos, radius);
-        sphere.setVelocity(velocity);
+        Rigatoni rigatoni = Rigatoni(pos, radius);
+        rigatoni.setVelocity(velocity);
 
-		spheres.push_back(sphere);
+		rigatonis.push_back(rigatoni);
 	}
 
-    // define the box containing spheres
+    // define the box containing rigatonis
 
     box = Box(glm::vec3(0,0,0), ofGetHeight());     // cube with size == height of window
 }
@@ -39,10 +39,10 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
 
-	for (int i=0; i<spheres.size(); i++)
+	for (int i=0; i<rigatonis.size(); i++)
 	{
-		spheres[i].update();
-        spheres[i].bounceWalls(box.getLeft(), box.getRight(), box.getTop(), box.getBottom(), box.getFront(), box.getBack());
+		rigatonis[i].update();
+        rigatonis[i].bounceWalls(box.getLeft(), box.getRight(), box.getTop(), box.getBottom(), box.getFront(), box.getBack());
 	}
 
 }
@@ -54,9 +54,9 @@ void ofApp::draw(){
 	ofEnableDepthTest();
 
 	ofFill();
-	for (int i=0; i<spheres.size(); i++)
+	for (int i=0; i<rigatonis.size(); i++)
 	{
-		spheres[i].draw();
+		rigatonis[i].draw();
 	}
 
 	ofNoFill();
