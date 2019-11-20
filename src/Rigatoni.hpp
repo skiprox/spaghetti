@@ -29,5 +29,6 @@ public:
     ofShader shader;
 
 	float radius;
+	float rot;
 	ofColor color;
 };

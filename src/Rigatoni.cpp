@@ -10,6 +10,7 @@ Rigatoni::Rigatoni()
 {
     pos     = glm::vec3(0,0,0);
 	radius  = ofRandom(5,20);
+	rot = ofRandom(-90.0, 90.0);
 	shader.load("shader.vert", "shader.frag");
     setup();
 }
@@ -18,6 +19,7 @@ Rigatoni::Rigatoni(glm::vec3 _pos, float _radius)
 {
 	pos     = _pos;
 	radius  = _radius;
+	rot = ofRandom(-90.0, 90.0);
 	shader.load("shader.vert", "shader.frag");
     setup();
 }
@@ -35,7 +37,9 @@ void Rigatoni::update()
     vel += acc;
 	pos += vel;
     acc *= 0;
-
+    float t = ofGetElapsedTimef();
+    float r = pos.x + pos.y + pos.z;
+    rot += ofNoise(t/100.0 + r);
 }
 
 void Rigatoni::draw()
@@ -45,7 +49,10 @@ void Rigatoni::draw()
 	ofSetColor(color);
 	shader.setUniform1f("time", ofGetElapsedTimef());  // set float value
     shader.setUniform1f("depth", 50.f);
+    ofPushMatrix();
+    ofRotateDeg(rot, 1.0, 1.0, 1.0);
 	ofDrawCylinder(pos, radius, radius * 3.0);
+	ofPopMatrix();
 	shader.end();
 	ofPopStyle();
 }
