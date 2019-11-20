@@ -31,11 +31,9 @@ void main()
     // manipulate depth based on sin wave
     //  wave travels along x
     
-    float x = texCoordVarying.x * 1.05f;  // arbitrary scale
+    float x = texCoordVarying.x * 2.05f;  // arbitrary scale
 
-    pos.x += sin(pos.x * 100.0f)/10.0f;
-    pos.y += cos(pos.y * 100.0f)/10.0f;
-    float dist  = length(vec2(.5,.5) - texCoordVarying);
+    float dist  = length(vec2(.5f,.5f) - texCoordVarying);
     float distN = dist / HALF_SQRT_2;
     float t     = time * 3.;
     float amp   = 0.1f * pow(1.-distN,2.) * 2.;
