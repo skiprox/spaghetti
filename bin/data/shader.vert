@@ -10,11 +10,9 @@
 #define HALF_SQRT_2 0.707106781186548
 
 // variables
-
 varying vec2 texCoordVarying;   // shared texture coords
 
 // from ofApp
-
 uniform float time;             // eg. ofGetElapsedTimef()
 uniform float depth;            // scale the waves
 
@@ -30,12 +28,10 @@ void main()
     
     // manipulate depth based on sin wave
     //  wave travels along x
-    
-    float x = texCoordVarying.x * 2.05f;  // arbitrary scale
 
     float dist  = length(vec2(.5f,.5f) - texCoordVarying);
     float distN = dist / HALF_SQRT_2;
-    float t     = time * 3.;
+    float t     = time * 12.;
     float amp   = 0.1f * pow(1.-distN,2.) * 2.;
     
     float ripple = sin(t - dist * 15.) * amp;
